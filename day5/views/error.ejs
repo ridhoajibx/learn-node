@@ -1,34 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>CKMOBILE</title>
-</head>
+<%- include('./partials/head') %>
 
-<body>
-    <nav>
-        <div class="nav-wrapper container">
-            <a href="/" class="brand-logo">CRUD</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/add-item">Add-item</a></li>
-            </ul>
+    <body>
+        <%- include('./partials/nav') %>
+        <div class="container center-align">
+            <div class="row">
+                <i class="large material-icons">sentiment_dissatisfied</i>
+                <h1>Opps!</h1>
+                <p>It seem the page you are looking for is not available.</p>
+            </div>
         </div>
-    </nav>
-    <div class="container center-align">
-        <div class="row">
-            <i class="large material-icons">sentiment_dissatisfied</i>
-            <h1>Opps!</h1>
-            <p>It seem the page you are looking for is not available.</p>
-        </div>
-    </div>
-</body>
+    </body>
 
 </html>

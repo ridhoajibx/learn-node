@@ -1,8 +1,17 @@
 const express = require('express');
 const app = express();
+const mongoose = require('mongoose');
+const mongodb = "mongodb+srv://ckmobile:ckmobile123@cluster0.l0hyp.mongodb.net/items-database?retryWrites=true&w=majority";
+mongoose.connect(mongodb, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => {
+    console.log('connected!');
+    app.listen(3000);
+}).catch((err) => {
+    console.log(err);
+    app.listen(3000);
+});
 
 app.set('view engine', 'ejs');
-app.listen(3000);
 
 app.get('/', (req, res) => {
     const items = [

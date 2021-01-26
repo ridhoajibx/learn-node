@@ -1,56 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <title>CKMOBILE</title>
-</head>
+<%- include('./partials/head') %>
 
-<body>
-    <nav>
-        <div class="nav-wrapper container">
-            <a href="/" class="brand-logo">CRUD</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="/add-item">Add-item</a></li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        <ul class="collection with-header">
-            <% if (items.length> 0) { %>
-                <% items.forEach(item=> { %>
+    <body>
+        <%- include('./partials/nav') %>
+        <div class="container">
+            <ul class="collection with-header">
+                <% if (items.length> 0) { %>
+                    <% items.forEach(item=> { %>
+                        <li class="collection-item">
+                            <div>
+                                <span>
+                                    <%= item.name %>
+                                </span>
+                                <span>
+                                    Rp. <%= item.price %>
+                                </span>
+                                <a href="#!" class="secondary-content">
+                                    <i class="material-icons">edit</i>
+                                    <i class="material-icons">delete</i>
+                                </a>
+                            </div>
+                        </li>
+                    <% }); %>
+
+                <% } else { %>
                     <li class="collection-item">
                         <div>
-                            <span>
-                                <%= item.name %>
-                            </span>
-                            <span>
-                                Rp. <%= item.price %>
-                            </span>
-                            <a href="#!" class="secondary-content">
-                                <i class="material-icons">edit</i>
-                                <i class="material-icons">delete</i>
-                            </a>
+                            You don't have any items
                         </div>
                     </li>
-                <% }); %>
-
-            <% } else { %>
-                <li class="collection-item">
-                    <div>
-                        You don't have any items
-                    </div>
-                </li>
-            <% } %>
-        </ul>
-    </div>
-</body>
+                <% } %>
+            </ul>
+        </div>
+    </body>
 
 </html>
