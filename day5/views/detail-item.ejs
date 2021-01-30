@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('./partials/head') %>
+
+    <body>
+        <%- include('./partials/nav') %>
+            <div class="container">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="https://i.pcmag.com/imagery/reviews/03xdTO0Ka4H4KvEgtSPg4c2-12.1569479325.fit_lpad.size_625x365.jpg" alt="...">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4"><%= item.name %><i
+                                class="material-icons right">more_vert</i></span>
+                        <p>
+                            $<%= item.price %>
+                        </p>
+                        <a id="deleteBtn" data-id="<%= item._id %>" class="btn" >Delete <i class="material-icons right">delete</i></a>
+                        <script>
+                            deleteBtn.onclick = function (e) {
+                                const id = deleteBtn.dataset.id;
+                                // const id = e.target.getAttribute('data-id');
+                                // console.log(id);
+                                e.preventDefault();
+                                const endpoint = `/items/${id}`;
+                                fetch(endpoint, {
+                                    method: 'DELETE'
+                                }).then((res)=>res.json()).then((data) => {
+                                    console.log(data, 'data');
+                                    window.location.href = data.redirect;
+                                }).catch((err)=>console.log(err));
+                            }
+                        </script>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Item: <%= item.name %><i
+                                class="material-icons right">close</i></span>
+                        <p>Price: Rp. <%= item.price %></p>
+                    </div>
+                </div>
+            </div>
+    </body>
+
+</html>

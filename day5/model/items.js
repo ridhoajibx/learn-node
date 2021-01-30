@@ -10,7 +10,7 @@ const ItemSchema = new Schema({
         type: Number,
         required: true
     }
-}, { timestamp: true });
+}, { timestamps: true });
 
 const Item = mongoose.model('Item', ItemSchema);
 module.exports = Item;
